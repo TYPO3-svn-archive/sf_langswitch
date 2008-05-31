@@ -1,0 +1,28 @@
+plugin.tx_sflangswitch = USER_INT
+plugin.tx_sflangswitch {
+	userFunc = tx_sflangswitch_controllers_switch->main
+
+	configurations {
+		# either renderListAction or renderSelectAction are possible
+		defaultAction = renderListAction
+
+		languageUids = 0,3,1
+		pageIdIfNoTranslation = 2
+		labels = Nederlands || English || Deutsch
+		
+		fields {
+			title.crop = 3 | |
+			title.case = lower
+		}
+
+		showTitle = 1
+		showSubmit = 1
+
+		pathToLanguageFile = EXT:sf_langswitch/configurations/locallang.xml
+		pathToTemplateDirectory = EXT:sf_langswitch/templates/
+		listTemplate = list.html
+		selectTemplate = select.html
+	}
+}
+
+tt_content.list.20.sf_langswitch =< plugin.tx_sflangswitch
